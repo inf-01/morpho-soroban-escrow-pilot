@@ -1,0 +1,148 @@
+:root {
+    --primary: #94c11f;
+    /* Verde CRJungle Original */
+    --secondary: #d9a441;
+    /* Tono ocre de los ojos de la rana */
+    --bg: #000000;
+    --card-bg: rgba(26, 31, 22, 0.9);
+    --text: #ffffff;
+    --text-muted: #a0a0a0;
+    --success: #94c11f;
+    --warning: #d9a441;
+    --danger: #ff4444;
+    --border: rgba(148, 193, 31, 0.3);
+    --font-heading: 'Orbitron', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    background-image:
+        radial-gradient(circle at 50% -20%, rgba(148, 193, 31, 0.15) 0%, transparent 50%);
+    min-height: 100vh;
+}
+
+.dashboard {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: rgba(148, 193, 31, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo img {
+    width: 120px;
+    /* Tamaño prominente para la Rana Original */
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(148, 193, 31, 0.3));
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    color: var(--primary);
+}
+
+.wallet-badge {
+    background: transparent;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    color: var(--primary);
+    font-size: 0.75rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--primary);
+    background: rgba(26, 31, 22, 1);
+}
+
+.balance-value {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin: 1rem 0;
+}
+
+.milestone-item {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.status-badge {
+    font-family: var(--font-heading);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.65rem;
+    border-radius: 2px;
+}
+
+.status-paid {
+    background: var(--primary);
+    color: #000;
+}
+
+.status-review {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn {
+    font-family: var(--font-heading);
+    padding: 1rem 2rem;
+    background: var(--primary);
+    color: #000;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px var(--primary);
+}
+
+.timeline::before {
+    background: var(--border);
+}
