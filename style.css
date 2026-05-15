@@ -1,0 +1,190 @@
+:root {
+    --primary: #7D3CFF;
+    --secondary: #00D1FF;
+    --bg: #05070A;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text: #F0F2F5;
+    --text-muted: #8B949E;
+    --success: #28C76F;
+    --warning: #FF9F43;
+    --danger: #EA5455;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    background-image: radial-gradient(circle at 10% 20%, rgba(125, 60, 255, 0.05) 0%, transparent 40%),
+                      radial-gradient(circle at 90% 80%, rgba(0, 209, 255, 0.05) 0%, transparent 40%);
+    min-height: 100vh;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.wallet-badge {
+    background: var(--card-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.balance-card {
+    background: linear-gradient(135deg, rgba(125, 60, 255, 0.1), rgba(0, 209, 255, 0.1));
+}
+
+.balance-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.balance-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.milestone-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.milestone-item {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease;
+}
+
+.milestone-item:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.milestone-info {
+    flex-grow: 1;
+}
+
+.milestone-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.milestone-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.status-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-paid { background: rgba(40, 199, 111, 0.1); color: var(--success); }
+.status-pending { background: rgba(255, 159, 67, 0.1); color: var(--warning); }
+.status-review { background: rgba(0, 209, 255, 0.1); color: var(--secondary); }
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 20px rgba(125, 60, 255, 0.4);
+}
+
+.timeline {
+    border-left: 2px solid var(--border);
+    padding-left: 2rem;
+    margin-left: 1rem;
+}
+
+.timeline-event {
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: calc(-2rem - 6px);
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.event-time { font-size: 0.75rem; color: var(--text-muted); }
+.event-desc { font-size: 0.9rem; margin-top: 0.2rem; }
+
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+}
