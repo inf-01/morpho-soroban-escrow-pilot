@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Institution | Escrow Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard">
+        <header>
+            <div class="logo">
+                <div
+                    style="width: 40px; height: 40px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                </div>
+                <h1>Stellar Institution</h1>
+            </div>
+            <div class="wallet-badge" id="wallet-status">
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--success);"></div>
+                GC7R...4V2P (Financiero)
+            </div>
+        </header>
+
+        <div class="grid">
+            <main>
+                <div class="card balance-card">
+                    <p class="balance-label">Reserva Presupuestaria On-Chain (USDC)</p>
+                    <h2 class="balance-value" id="total-balance">$100,000.00</h2>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
+                        Contract Address: <span
+                            style="font-family: monospace; color: var(--secondary);">CC7U...SOROBAN_ESCROW...3X9L</span>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.2rem;">Hitos del Proyecto</h3>
+                        <span style="font-size: 0.9rem; color: var(--primary);">Fase Actual: Ejecución (Hito 2)</span>
+                    </div>
+
+                    <div class="milestone-list">
+                        <!-- Hito 1 -->
+                        <div class="milestone-item">
+                            <div class="milestone-info">
+                                <div class="milestone-name">1. Aprobación de Plan de Estrategia</div>
+                                <div class="milestone-meta">Monto: $20,000.00 | Evidencia: <span
+                                        style="color: var(--secondary);">hash_v82...q91 (Verificada)</span></div>
+                            </div>
+                            <span class="status-badge status-paid">Pagado</span>
+                        </div>
+
+                        <!-- Hito 2 -->
+                        <div class="milestone-item"
+                            style="border-color: var(--primary); background: rgba(125, 60, 255, 0.05);">
+                            <div class="milestone-info">
+                                <div class="milestone-name">2. Ejecución Parcial y Desarrollo Core</div>
+                                <div class="milestone-meta">Monto: $40,000.00 | Hash Evidencia: <span
+                                        style="color: var(--secondary);">hash_x02...3k9</span></div>
+                            </div>
+                            <span class="status-badge status-review" id="status-2">En Revisión</span>
+                        </div>
+
+                        <!-- Hito 3 -->
+                        <div class="milestone-item">
+                            <div class="milestone-info">
+                                <div class="milestone-name">3. Entrega Final y Cierre de Auditoría</div>
+                                <div class="milestone-meta">Monto: $40,000.00 | Esperando inicio de fase</div>
+                            </div>
+                            <span class="status-badge status-pending">Bloqueado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="actions-panel">
+                    <h3 style="margin-bottom: 1.5rem;">Panel de Decisiones</h3>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn btn-primary" onclick="approveMilestone()">Liberar Pago (Financiero)</button>
+                        <button class="btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border);"
+                            onclick="alert('Iniciando proceso de disputa institucional...')">Abrir Disputa</button>
+                    </div>
+                </div>
+            </main>
+
+            <aside>
+                <div class="card">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Trazabilidad On-Chain</h3>
+                    <div class="timeline">
+                        <div class="timeline-event">
+                            <p class="event-time">Hace 10 min</p>
+                            <p class="event-desc"><strong>Empresa Proveedora</strong> envió evidencia Hito 2.</p>
+                        </div>
+                        <div class="timeline-event">
+                            <p class="event-time">Ayer 14:30</p>
+                            <p class="event-desc"><strong>Financiero</strong> liberó $20k del Hito 1.</p>
+                        </div>
+                        <div class="timeline-event">
+                            <p class="event-time">Ayer 10:15</p>
+                            <p class="event-desc"><strong>Supervisor Técnico</strong> validó PDF del Hito 1.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Gobernanza</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.85rem;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-muted)">Institución:</span>
+                            <span>GDTU...4K91</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-muted)">Supervisor:</span>
+                            <span>GD2A...9K3L</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-muted)">Proveedor:</span>
+                            <span>GAKL...1M2Q</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-muted)">Árbitro:</span>
+                            <span>GBB7...X8W1</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
